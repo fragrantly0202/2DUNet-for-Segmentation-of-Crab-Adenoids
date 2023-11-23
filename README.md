@@ -44,19 +44,19 @@ Our pre-processing operation is to first calculate the mean and variance of pixe
 └── dataset
     ├── data
         ├── crab_number_1
-            ├── image_1
-            ├── image_2
+            ├── image_1.dcm
+            ├── image_2.dcm
             ......
-            └── image_x
+            └── image_x.dcm
         ├── crab_number_2
         ......
         └── crab_number_n
     ├── mask
         ├── crab_number_1
-            ├── mask_1
-            ├── mask_2
+            ├── mask_1.png
+            ├── mask_2.png
             ......
-            └── mask_x
+            └── mask_x.png
         ├── crab_number_2
         ......
         └── crab_number_n
@@ -64,8 +64,18 @@ Our pre-processing operation is to first calculate the mean and variance of pixe
         ├── train.txt
         └── val.txt
 ```
+Format your datasets to the above structure and run the `get_txt.py` file to generate the specific txt file.
 
+If you need to run dataset files in other formats, modify the code that reads the data in a file such as `dataloader.py`.
 
+## Train
+After preprocessing the dataset and adjusting it to the desired file structure, all you need to do is run ` train.py`
+
+Our code supports multi-card training, you can choose to train on multiple GPUs.
+
+example: `CUDA_VISIBLE_DEVICES=0,1 python3 train.py`
+
+## Result
 
 
 
