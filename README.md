@@ -5,9 +5,9 @@ The repository is a 2DUNet implemented with pytorch, referring to this projects.
 
 
 ## Preporcess
-Because our crab ct images are dcm files, that is, 16-bit images. The pixels and features of the adenoids are only distributed in a small area. Compared to rbg images with pixel values ranging from 0 to 255, our segmentation target is indeed more difficult.
+Because our crab CT images are dcm files, that is, 16-bit images. The pixels and features of the adenoids are only distributed in a small area. Compared to rbg images with pixel values ranging from 0 to 255, our segmentation target is indeed more difficult.
 
-Our pre-processing operation is to first calculate the mean and variance of pixel values of the original image corresponding to all adenoid masks, and take the upper threshold as the mean plus five times the standard deviation, and the lower threshold as the mean minus five times the standard deviation. In this way, we can obtain data with more obvious features after preprocessing
+Our pre-processing operation is to first **calculate the mean and variance of pixel values of the original image corresponding to all adenoid masks**, and take the upper threshold as the mean plus five times the standard deviation, and the lower threshold as the mean minus five times the standard deviation. In this way, we can obtain data with more obvious features after preprocessing
 
 <div align=center>
   <img width="400" height="400" src= ./imgs/origin_img.png/>
@@ -76,6 +76,29 @@ Our code supports multi-card training, you can choose to train on multiple GPUs.
 example: `CUDA_VISIBLE_DEVICES=0,1 python3 train.py`
 
 ## Result
+All of our training logs are stored in the *logs* folder
+<div align=center>
+  <img width="400" height="400" src= ./imgs/epoch_loss.png/>
+  <p class="caption">loss</p>
+</div>
+<div align=center>
+  <img width="400" height="400" src= ./imgs/epoch_f1.png/>
+  <p class="caption">f1</p>
+</div>
+<div align=center>
+  <img width="400" height="400" src= ./imgs/epoch_miou.png/>
+  <p class="caption">miou</p>
+</div>
 
+## Inference
+Select the set of crab data you want to get inference and run `visualize_model.py` to get the visualized results.
+<div align=center>
+  <img width="400" height="400" src= ./imgs/result_1.png/>
+  <p class="caption">result 1</p>
+</div>
+<div align=center>
+  <img width="400" height="400" src= ./imgs/result_2.png/>
+  <p class="caption">result 2</p>
+</div>
 
 
