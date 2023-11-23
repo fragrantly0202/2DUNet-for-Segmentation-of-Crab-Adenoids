@@ -18,6 +18,54 @@ Our pre-processing operation is to first calculate the mean and variance of pixe
   <p class="caption">preprocessed img</p>
 </div>
 
+## Code Struture
+```angular2
+├── nets
+    ├── unet.py      # main network
+    │── resnet.py      # resnet backbone
+    │── vgg.py      # vgg backbone
+    └── unet_training.py      # computer metrics and loss, initialization parameter
+├── pretrained_model           # store pretrained model
+├── logs           # model save path
+|── utils            # some related tools
+    ├── callbacks.py
+    ├── dataloader.py
+    ├── utils.py
+    └── utils_metrics.py
+├── centercrop_and_pad.py  # image transform
+├── crab_filter_compute_all.py          # preprocess
+├── get_txt.py         # generate txt file
+├── visualize_model.py         # generate test images
+└── train.py
+```
+
+## Dateset Struture
+```angular2
+└── dataset
+    ├── data
+        ├── crab_number_1
+            ├── image_1
+            ├── image_2
+            ......
+            └── image_x
+        ├── crab_number_2
+        ......
+        └── crab_number_n
+    ├── mask
+        ├── crab_number_1
+            ├── mask_1
+            ├── mask_2
+            ......
+            └── mask_x
+        ├── crab_number_2
+        ......
+        └── crab_number_n
+    └── txt 
+        ├── train.txt
+        └── val.txt
+```
+
+
 
 
 
